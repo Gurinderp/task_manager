@@ -10,22 +10,58 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final String _initial = "0";
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Color.fromRGBO(255, 116, 116, 1),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10),
+            topRight: Radius.circular(10),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Color.fromRGBO(166, 255, 165, 1),
+              blurRadius: 10,
+              spreadRadius: 10,
+            ),
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadiusGeometry.only(
+            topLeft: Radius.circular(10),
+            topRight: Radius.circular(10),
+          ),
+          child: BottomNavigationBar(
+            backgroundColor: Color.fromRGBO(255, 191, 191, 1),
+            selectedItemColor: Color.fromRGBO(172, 164, 255, 1),
+            unselectedItemColor: Color.fromRGBO(191, 255, 216, 1),
+            items: [
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home1"),
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home2"),
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home3"),
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home4"),
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home5"),
+            ],
+            onTap: (index) {
+              currentIndex = index;
+            },
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        backgroundColor: Color.fromRGBO(129, 0, 114, 1),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_initial',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+          children: <Widget>[const Text('Hello World! 32')],
         ),
       ),
     );
