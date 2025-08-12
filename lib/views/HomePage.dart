@@ -10,21 +10,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String _initial = "0";
-
-  void _incrementCounter() {
-    setState(() {
-      _initial = "Hello World!";
-    });
-  }
+  final String _initial = "0";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
+      appBar: _buildAppBar(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -37,11 +28,34 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.grass),
-      ),
     );
   }
+}
+
+AppBar _buildAppBar() {
+  return AppBar(
+    backgroundColor: const Color.fromARGB(255, 255, 121, 80),
+    title: Row(
+      children: <Widget>[
+        Container(
+          margin: EdgeInsets.only(left: 10, top: 5),
+          height: 50,
+          width: 50,
+          decoration: BoxDecoration(
+            color: Color.fromRGBO(104, 104, 255, 1),
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
+        SizedBox(width: 10),
+        Text(
+          "AppBar Title",
+          style: TextStyle(
+            color: Color.fromRGBO(53, 53, 53, 1),
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
+    ),
+  );
 }
