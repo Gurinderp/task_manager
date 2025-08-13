@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/views/profileView.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -10,7 +11,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int currentIndex = 0;
+  List<Widget> _views = [
+    HomePage(),
+    ProfileView(),
+  ]
 
   @override
   Widget build(BuildContext context) {
@@ -94,4 +98,18 @@ AppBar _buildAppBar() {
       ],
     ),
   );
+}
+
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+      ],
+    );
+  }
 }
