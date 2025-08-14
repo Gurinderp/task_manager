@@ -11,10 +11,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<Widget> _views = [
-    HomePage(),
-    ProfileView(),
-  ]
+  List<Widget> _views = [HomePage(), ProfileView()];
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
               BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home4"),
               BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home5"),
             ],
-            onTap: (index) {
-              currentIndex = index;
-            },
+            onTap: (index) {},
           ),
         ),
       ),
@@ -100,15 +95,12 @@ AppBar _buildAppBar() {
   );
 }
 
-
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       ],
     );
   }
